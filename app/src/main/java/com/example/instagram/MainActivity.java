@@ -8,16 +8,20 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
+import androidx.fragment.app.Fragment;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -41,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
     public static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 42;
 
+    private BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
         btnCaptureImage = findViewById(R.id.btnCaptureImage);
         ivPostImage = findViewById(R.id.ivPostImage);
         btnSubmit = findViewById(R.id.btnSubmit);
+
+        bottomNavigationView = findViewById(R.id.bottomNavigation);
 
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +86,28 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Post made successfully on Parse", Toast.LENGTH_SHORT).show();
             }
         });
+
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                Fragment fragment;
+                switch (menuItem.getItemId()) {
+                    case R.id.action_home:
+                        Toast.makeText(MainActivity.this, "home!", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.action_compose:
+                        Toast.makeText(MainActivity.this, "compose!", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.action_profile:
+                    default:
+                        Toast.makeText(MainActivity.this, "profile!", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                return true;
+            }
+        });
+
     }
 
     private void launchCamera() {
