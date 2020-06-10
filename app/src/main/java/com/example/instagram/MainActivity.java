@@ -2,7 +2,6 @@ package com.example.instagram;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,16 +33,16 @@ public class MainActivity extends AppCompatActivity {
                 Fragment fragment;
                 switch (menuItem.getItemId()) {
                     case R.id.action_home:
-                        Toast.makeText(MainActivity.this, "home!", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, "home!", Toast.LENGTH_SHORT).show();
                         fragment = new PostsFragment();
                         break;
                     case R.id.action_compose:
-                        Toast.makeText(MainActivity.this, "compose!", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, "compose!", Toast.LENGTH_SHORT).show();
                         fragment = new ComposeFragment();
                         break;
                     case R.id.action_profile:
                     default:
-                        Toast.makeText(MainActivity.this, "profile!", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, "profile!", Toast.LENGTH_SHORT).show();
                         fragment = new ComposeFragment();
                         break;
                 }
