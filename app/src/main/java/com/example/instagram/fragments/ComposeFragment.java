@@ -21,7 +21,6 @@ import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 
-import com.example.instagram.MainActivity;
 import com.example.instagram.Post;
 import com.example.instagram.R;
 import com.parse.FindCallback;
@@ -42,7 +41,7 @@ import static android.app.Activity.RESULT_OK;
 public class ComposeFragment extends Fragment {
 
     public static final String TAG = "COMPOSE_FRAGMENT";
-    
+
     private EditText etDescription;
     private Button btnCaptureImage;
     private ImageView ivPostImage;

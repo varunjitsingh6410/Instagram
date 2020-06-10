@@ -7,10 +7,15 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
+import com.example.instagram.fragments.ComposeFragment;
+import com.example.instagram.fragments.PostsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
+
+    final FragmentManager fragmentManager = getSupportFragmentManager();
 
     private BottomNavigationView bottomNavigationView;
 
@@ -30,18 +35,23 @@ public class MainActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()) {
                     case R.id.action_home:
                         Toast.makeText(MainActivity.this, "home!", Toast.LENGTH_SHORT).show();
+                        fragment = new PostsFragment();
                         break;
                     case R.id.action_compose:
                         Toast.makeText(MainActivity.this, "compose!", Toast.LENGTH_SHORT).show();
+                        fragment = new ComposeFragment();
                         break;
                     case R.id.action_profile:
                     default:
                         Toast.makeText(MainActivity.this, "profile!", Toast.LENGTH_SHORT).show();
+                        fragment = new ComposeFragment();
                         break;
                 }
+                fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
                 return true;
             }
         });
-
+        // Set default selection
+        bottomNavigationView.setSelectedItemId(R.id.action_home);
     }
 }
