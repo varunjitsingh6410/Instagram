@@ -21,7 +21,7 @@ import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 
-import com.example.instagram.Post;
+import com.example.instagram.models.Post;
 import com.example.instagram.R;
 import com.parse.ParseException;
 import com.parse.ParseFile;

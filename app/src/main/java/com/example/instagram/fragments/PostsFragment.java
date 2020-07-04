@@ -12,8 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.instagram.Post;
-import com.example.instagram.PostsAdapter;
+import com.example.instagram.models.Post;
+import com.example.instagram.adapters.PostsAdapter;
 import com.example.instagram.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
