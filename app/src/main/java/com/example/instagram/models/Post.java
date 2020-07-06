@@ -7,6 +7,8 @@ import com.parse.ParseUser;
 
 import org.parceler.Parcel;
 
+import java.util.Date;
+
 @Parcel(analyze={Post.class})
 @ParseClassName("Post")
 public class Post extends ParseObject {
@@ -47,5 +49,4 @@ public class Post extends ParseObject {
     {
         put(KEY_USER, user);
     }
-
 }

@@ -19,6 +19,8 @@ public class PostDetailsActivity extends AppCompatActivity {
     TextView tvUsernameDetails;
     TextView tvCaptionDetails;
 
+    TextView tvTimeStampDetails;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,10 +30,16 @@ public class PostDetailsActivity extends AppCompatActivity {
         tvUsernameDetails = findViewById(R.id.tvUsernameDetails);
         tvCaptionDetails = findViewById(R.id.tvCaptionDetails);
 
+        tvTimeStampDetails = findViewById(R.id.tvTimeStampDetails);
+
         Post post = Parcels.unwrap(getIntent().getParcelableExtra("post"));
 
         tvUsernameDetails.setText(post.getUser().getUsername());
         tvCaptionDetails.setText(post.getDescription());
+
+        String date = post.getCreatedAt().toString();
+        StringBuilder dateFormat = new StringBuilder(date);
+        tvTimeStampDetails.setText(dateFormat.delete(10, 23).toString());
 
         ParseFile image = post.getImage();
         if (image != null)
