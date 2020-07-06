@@ -2,8 +2,10 @@ package com.example.instagram;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcel;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,7 +34,7 @@ public class PostDetailsActivity extends AppCompatActivity {
 
         tvTimeStampDetails = findViewById(R.id.tvTimeStampDetails);
 
-        Post post = Parcels.unwrap(getIntent().getParcelableExtra("post"));
+        final Post post = Parcels.unwrap(getIntent().getParcelableExtra("post"));
 
         tvUsernameDetails.setText(post.getUser().getUsername());
         tvCaptionDetails.setText(post.getDescription());
@@ -46,5 +48,14 @@ public class PostDetailsActivity extends AppCompatActivity {
         {
             Glide.with(getApplicationContext()).load(image.getUrl()).into(ivImageDetails);
         }
+
+        tvUsernameDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), ProfileActivity.class);
+                i.putExtra("post2", Parcels.wrap(post));
+                startActivity(i);
+            }
+        });
     }
 }
