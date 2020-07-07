@@ -9,12 +9,12 @@
 
     <ImageView
         android:id="@+id/ivImageDetails"
-        android:layout_width="401dp"
-        android:layout_height="303dp"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -23,28 +23,56 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/ivImageDetails"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="5dp"
         android:hint="Username" />
 
     <TextView
         android:id="@+id/tvCaptionDetails"
         android:layout_width="match_parent"
-        android:layout_height="39dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/tvTimeStampDetails"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="-1dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="6dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="0dp"
         android:hint="This is my hint for the caption" />
 
     <TextView
         android:id="@+id/tvTimeStampDetails"
-        android:layout_width="408dp"
-        android:layout_height="28dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/tvUsernameDetails"
         android:layout_alignParentStart="true"
         android:layout_marginStart="3dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="5dp"
         android:text="TextView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvComments"
+        android:layout_width="545dp"
+        android:layout_height="102dp"
+        android:layout_below="@+id/tvCaptionDetails"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="-3dp"
+        android:layout_marginTop="5dp" />
+
+    <EditText
+        android:id="@+id/etWriteComment"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@+id/rvComments"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:hint="Write your comment here"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/btnComment"
+        android:layout_width="100dp"
+        android:layout_height="64dp"
+        android:layout_below="@+id/etWriteComment"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="17dp"
+        android:text="Comment" />
 </RelativeLayout>

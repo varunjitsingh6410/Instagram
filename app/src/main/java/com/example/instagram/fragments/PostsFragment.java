@@ -57,7 +57,6 @@ public class PostsFragment extends Fragment {
 
         allPosts = new ArrayList<>();
         adapter = new PostsAdapter(getContext(), allPosts);
-
         rvPosts.setAdapter(adapter);
         rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
 
